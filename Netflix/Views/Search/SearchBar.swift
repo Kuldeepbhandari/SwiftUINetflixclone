@@ -37,9 +37,21 @@ struct SearchBar: View {
                     }
                 
                 if isLoading{
-                    Color.red
-                        .frame(width: 35, height: 35)
-                }else{
+                    Button(action: {
+                        //clear text
+                        text = ""
+                    }, label: {
+                        ActivityIndicator(style: .medium, animate: .constant(true))
+                            .configure{
+                                $0.color = .white
+                            }
+                    
+                    })
+                    
+                    .padding(.trailing,18)
+                    .frame(width: 35, height: 35)
+
+                   
                 Button(action: {
                     //clear text
                     text = ""
